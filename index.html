@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog.m</title>
+    <link rel="icon" type="image/png" href="GFX/FAVICON/logo-16x16.png"/>
+    <link rel="icon" type="image/png" href="GFX/FAVICON/logo-32x32.png"/>
+    <link rel="icon" type="image/png" href="GFX/FAVICON/logo-96x96.png"/>
+    <link rel="stylesheet" href="style.css">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');</style>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHPRBBFTCE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZHPRBBFTCE');
+  
+</script>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="mail">
+                <a href="mailto:cammarshxll@gmail.com" class="nav-link">
+                    <span class="link-text">Hello There!</span>
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+                    </svg>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#place-1" onclick="Section1_visble()" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>
+                    <span class="link-text">Archive</span> 
+                </a>
+            </li> 
+            <li class="nav-item">
+                <a href="#place-2" onclick="Section2_visble()" class="nav-link">  
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mountain" class="svg-inline--fa fa-mountain fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z"></path></svg>
+                    <span class="link-text">Landscape</span> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#place-3" onclick="Section3_visble()" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
+                    </svg>
+                    <span class="link-text">Portrait</span> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#place-4" onclick="Section4_visble()" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="feather" class="svg-inline--fa fa-feather fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M467.14 44.84c-62.55-62.48-161.67-64.78-252.28 25.73-78.61 78.52-60.98 60.92-85.75 85.66-60.46 60.39-70.39 150.83-63.64 211.17l178.44-178.25c6.26-6.25 16.4-6.25 22.65 0s6.25 16.38 0 22.63L7.04 471.03c-9.38 9.37-9.38 24.57 0 33.94 9.38 9.37 24.6 9.37 33.98 0l66.1-66.03C159.42 454.65 279 457.11 353.95 384h-98.19l147.57-49.14c49.99-49.93 36.38-36.18 46.31-46.86h-97.78l131.54-43.8c45.44-74.46 34.31-148.84-16.26-199.36z"></path>
+                    </svg>
+                    <span class="link-text">Wildlife</span> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#place-5" onclick="Section5_visble()" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="adjust" class="svg-inline--fa fa-adjust fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+                    </svg>
+                    <span class="link-text">Monochrome</span> 
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+<main>
+
+<div id="Section1">
+    <div class="container">
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/1.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/2.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/21.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/4.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/29.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/5.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/6.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/14.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/7.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/8.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/10.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/11.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/12.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/15.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/9.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/16.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/23.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/17.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/3.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/18.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/25.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/13.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/19.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/28.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/22.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/24.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/26.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/27.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- SECTION ONE ARCHIVE -->
+
+<div id="Section2">
+    <div class="container">
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/16.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/1.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/3.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/4.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/11.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/6.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/25.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/26.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- SECTION TWO LANDSCAPE -->
+
+<div id="Section3">
+    <div class="container">
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/17.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/18.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/19.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/21.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/22.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- SECTION THREE PORTRAIT -->
+
+<div id="Section4">
+    <div class="container">
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/10.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/5.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/7.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/8.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/9.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/23.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/24.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- SECTION FOUR WILDLIFE -->
+
+<div id="Section5">
+    <div class="container">
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/2.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/12.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/13.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/14.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/15.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/19.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/27.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/28.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="GFX/PHOTOGRAPHY/29.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- SECTION FIVE MONOCHROME -->
+
+
+</main>
+<script src="./main.js"></script>
+</body>
+</html>
