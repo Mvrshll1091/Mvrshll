@@ -2,7 +2,7 @@
   const grid = document.getElementById('grid');
   const modal = document.getElementById('modal');
 
-  /* ---------- Hamburger – works on every page ---------- */
+  /* Hamburger */
   const hamburger = document.getElementById('hamburger');
   const menuOverlay = document.getElementById('menuOverlay');
   const menuClose = document.querySelector('.menu-close');
@@ -18,9 +18,9 @@
   menuOverlay?.querySelector('.menu-backdrop')?.addEventListener('click', () => toggleMenu(false));
   document.querySelectorAll('.menu-nav a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-  if(!grid) return; // about.html – no gallery / modal needed
+  if(!grid) return;
 
-  /* ---------- Gallery + Modal ---------- */
+  /* Gallery + Modal */
   const modalImg = document.getElementById('modal-img');
   const modalExif = document.getElementById('modal-exif');
   const closeBtn = modal.querySelector('.close');
@@ -108,14 +108,13 @@
     });
   }
 
+  /* Build grid – always clickable on mobile */
   images.forEach(item=>{
     const img = document.createElement('img');
     img.src = item.src;
     img.alt = '';
     img.loading = 'lazy';
-    if(window.matchMedia('(hover:hover)').matches){
-      img.addEventListener('click', ()=> openModal(images.indexOf(item)));
-    }
+    img.addEventListener('click', ()=> openModal(images.indexOf(item)));
     grid.appendChild(img);
   });
 
@@ -123,6 +122,17 @@
   modal?.querySelector('.modal-backdrop')?.addEventListener('click', closeModal);
   arrowLeft?.addEventListener('click', ()=> showAt((currentIndex-1+images.length)%images.length));
   arrowRight?.addEventListener('click', ()=> showAt((currentIndex+1)%images.length));
+
+  /* Touch swipe for modal */
+  let touchStartX = 0;
+  modalImg.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  modalImg.addEventListener('touchend', e => {
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(delta) > 50){
+      delta < 0 ? showAt((currentIndex+1)%images.length) : showAt((currentIndex-1+images.length)%images.length);
+    }
+  }, {passive:true});
+
   document.addEventListener('keydown', e=>{
     if(modal?.hidden) return;
     if(e.key==='Escape') closeModal();

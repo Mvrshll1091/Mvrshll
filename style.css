@@ -141,12 +141,16 @@ h2 {
     column-count: 2;
     padding: 0 var(--side) 80px
   }
+  .grid img:hover{ transform:none; }
+  .grid img{ cursor:pointer; }
 }
 
 @media(max-width:600px) {
   .grid {
     column-count: 1
   }
+  .grid img:hover{ transform:none; }
+  .grid img{ cursor:pointer; }
 }
 
 /* About */
