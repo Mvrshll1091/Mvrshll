@@ -51,14 +51,13 @@ h2{font:500 24px 'Roboto',sans-serif}
 .modal[hidden]{display:none}
 .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(15px)}
 .modal-figure{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:90vw}
-#modal-img{max-width:90vw;max-height:calc(100vh - 180px);width:auto;height:auto;display:block;border-radius:3px;transition:opacity .25s ease,transform .35s cubic-bezier(.4,0,.2,1)}
+#modal-img{max-width:90vw;max-height:calc(100vh - 180px);width:auto;height:auto;display:block;border-radius:3px;}
 .caption-bar{width:100%;margin-top:15px;display:flex;justify-content:center;color:var(--fg);font-size:12pt}
 .close,.arrow{position:absolute;z-index:3;color:#fff;background:none;border:none;cursor:pointer}
 .close{top:15px;right:30px;font-size:30px;line-height:1}
 .arrow{font-size:30px;top:50%;transform:translateY(-50%)}
 .arrow.left{left:calc(var(--side)*-.2)}
 .arrow.right{right:calc(var(--side)*-.2)}
-.arrow:hover{color:#BDBDBD}
 body.modal-open .nav{display:none}
 
 /* Mobile */
