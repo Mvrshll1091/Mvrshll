@@ -322,7 +322,7 @@ body.modal-open .nav {
 /* Mobile nav */
 @media(max-width:900px) {
   .nav {
-    padding: 30px 50px;
+    padding: 30px 30px;
   }
 
   .nav-links {
