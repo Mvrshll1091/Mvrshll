@@ -317,7 +317,7 @@ body.modal-open .nav {
 /* Mobile nav */
 @media(max-width:900px) {
   .nav {
-    padding: 30px 50px;
+    padding: 30px 30px;
   }
 
   .nav-links {
@@ -333,7 +333,7 @@ body.modal-open .nav {
   }
 
   .grid {
-    padding: 0 50px;
+    padding: 30px 30px;
   }
 
   .menu-nav a {
@@ -372,13 +372,7 @@ body.modal-open .nav {
     .arrow.right {
       display: none;
     }
-
-    .grid img:hover {
-      transform: none;
-    }
-
-    .grid img {
-      cursor: pointer;
-    }
+    .grid img:hover{ transform:none; }
+  .grid img{ cursor:pointer; }
   }
 }
