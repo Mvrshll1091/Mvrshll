@@ -302,6 +302,7 @@ body.modal-open .nav {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 0px 30px;
+    padding-bottom: 15px;
   }
 
   .about img {
@@ -333,6 +334,7 @@ body.modal-open .nav {
 
   .grid {
     padding: 0px 30px;
+    padding-bottom: 15px;
   }
 
   .menu-nav a {
