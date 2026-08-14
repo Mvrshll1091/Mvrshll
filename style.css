@@ -113,7 +113,7 @@ h2 {
 .grid {
   column-count: 3;
   column-gap: var(--gap);
-  column-fill: auto;
+  column-fill: balance;
   padding: 0 var(--side) 30px;
 }
 
