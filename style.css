@@ -301,8 +301,7 @@ body.modal-open .nav {
   .about {
     grid-template-columns: 1fr;
     gap: 30px;
-    padding: 0px 50px;
-    padding-bottom: 50px;
+    padding: 30px 30px;
   }
 
   .about img {
