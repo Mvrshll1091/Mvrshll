@@ -28,7 +28,7 @@ h2{font:500 24px 'Roboto',sans-serif}
 
 /* Masonry grid */
 .grid{column-count:3;column-gap:var(--gap);column-fill:balanced;padding:0 var(--side) 30px}
-.grid img{width:100%;margin-bottom:var(--gap);border-radius:3px;cursor:pointer;break-inside:avoid;}
+.grid img{width:100%;margin-bottom:var(--gap);border-radius:3px;cursor:pointer;break-inside:avoid;transition:transform .1s ease,opacity .1s ease}
 .grid img:hover{transform:scale(.99)}
 @media(max-width:1200px){.grid{column-count:2}}
 @media(max-width:900px){.grid{column-count:2;padding:0 var(--side) 80px}}

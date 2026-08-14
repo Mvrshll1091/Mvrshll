@@ -58,27 +58,6 @@
   let currentIndex = -1;
   let isTransitioning = false;
 
-  const setModalItem = (idx, dir=0) => {
-    if(isTransitioning) return;
-    isTransitioning = true;
-    const item = images[idx];
-    modalImg.style.transition = 'transform .35s cubic-bezier(.4,0,.2,1), opacity .25s ease';
-    modalImg.style.transform = `translateX(${dir*100}%) scale(.95)`;
-    modalImg.style.opacity = '0';
-
-    const imgPreload = new Image();
-    imgPreload.onload = () => {
-      modalImg.src = item.src;
-      if(modalExif) modalExif.textContent = item.exif || '';
-      requestAnimationFrame(() => {
-        modalImg.style.transform = 'translateX(0) scale(1)';
-        modalImg.style.opacity = '1';
-        setTimeout(()=> isTransitioning=false, 350);
-      });
-    };
-    imgPreload.src = item.src;
-  };
-
   const openModal = (idx) => {
     currentIndex = idx;
     const item = images[currentIndex];
@@ -108,10 +87,32 @@
     },200);
   };
 
-  const showAt = (idx, dir) => {
-    if(idx<0 || idx>=images.length) return;
-    currentIndex = idx;
-    setModalItem(idx, dir);
+  const slideTo = (idx, dir) => {
+    if(isTransitioning || idx < 0 || idx >= images.length) return;
+    isTransitioning = true;
+    const item = images[idx];
+
+    // 1. put the image off-screen instantly, no transition
+    modalImg.style.transition = 'none';
+    modalImg.style.transform = `translateX(${dir*100}%) scale(.95)`;
+    modalImg.style.opacity = '0';
+    modalImg.offsetWidth; // force reflow
+
+    const imgPreload = new Image();
+    imgPreload.onload = () => {
+      currentIndex = idx;
+      modalImg.src = item.src;
+      if(modalExif) modalExif.textContent = item.exif || '';
+
+      // 2. animate in from off-screen to center
+      requestAnimationFrame(()=>{
+        modalImg.style.transition = 'transform .35s cubic-bezier(.4,0,.2,1), opacity .25s ease';
+        modalImg.style.transform = 'translateX(0) scale(1)';
+        modalImg.style.opacity = '1';
+        setTimeout(()=> isTransitioning = false, 350);
+      });
+    };
+    imgPreload.src = item.src;
   };
 
   // Build grid
@@ -126,8 +127,8 @@
 
   closeBtn?.addEventListener('click', closeModal);
   modal?.querySelector('.modal-backdrop')?.addEventListener('click', closeModal);
-  arrowLeft?.addEventListener('click', ()=> showAt((currentIndex-1+images.length)%images.length, -1));
-  arrowRight?.addEventListener('click', ()=> showAt((currentIndex+1)%images.length, 1));
+  arrowLeft?.addEventListener('click', ()=> slideTo((currentIndex-1+images.length)%images.length, -1));
+  arrowRight?.addEventListener('click', ()=> slideTo((currentIndex+1)%images.length, 1));
 
   // Touch swipe
   let touchStartX = 0;
@@ -135,7 +136,7 @@
   modalImg.addEventListener('touchend', e=>{
     const delta = e.changedTouches[0].clientX - touchStartX;
     if(Math.abs(delta) > 50){
-      showAt((currentIndex + (delta<0?1:-1) + images.length)%images.length, delta<0?1:-1);
+      slideTo((currentIndex + (delta<0?1:-1) + images.length)%images.length, delta<0?1:-1);
     }
   }, {passive:true});
 
