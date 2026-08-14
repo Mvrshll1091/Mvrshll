@@ -20,7 +20,7 @@ body{font-size:14px;font-weight:400}
 .menu-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(15px)}
 .menu-nav{position:relative;z-index:2;text-align:center}
 .menu-nav a{display:block;color:#fff;text-decoration:none;font-size:14pt;margin:30px 0}
-.menu-close{background:none;border:none;color:#fff;font-size:30px;cursor:pointer;margin-top:40px}
+.menu-close{background:none;border:none;color:#fff;font-size:25px;cursor:pointer;margin-top:40px}
 
 /* Type */
 h1{font:700 48px 'Roboto',sans-serif}
@@ -68,7 +68,7 @@ body.modal-open .nav{display:none}
   .logo-img{height:55px}
   .grid{padding:0 30px 10px}
   .menu-nav a{font-size:22pt;text-transform:uppercase;letter-spacing:.5px;margin:25px 0;font-weight:700}
-  .menu-close{position:fixed;top:15px;right:30px;margin-top:0}
+  .menu-close{position:fixed;top:15px;right:30px;margin-top:0;font-size: 25px;}
   .close{position:fixed;top:15px;right:30px;font-size:25px;line-height:1}
   .arrow.left,.arrow.right{display:none}
   .grid img:hover{transform:none}
