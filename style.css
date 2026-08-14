@@ -139,7 +139,7 @@ h2 {
 @media(max-width:900px) {
   .grid {
     column-count: 2;
-    padding: 0 var(--side) 80px
+    padding: 0 var(--side) 30px
   }
 
   .grid img:hover {
@@ -154,6 +154,7 @@ h2 {
 @media(max-width:600px) {
   .grid {
     column-count: 1
+    padding: 0 var(--side) 30px
   }
 
   .grid img:hover {
