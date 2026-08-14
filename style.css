@@ -68,8 +68,8 @@ body.modal-open .nav{display:none}
   .logo-img{height:55px}
   .grid{padding:0 30px 10px}
   .menu-nav a{font-size:22pt;text-transform:uppercase;letter-spacing:.5px;margin:25px 0;font-weight:700}
-  .menu-close{position:fixed;top:15px;right:25px;margin-top:0}
-  .close{position:fixed;top:15px;right:25px;font-size:30px;line-height:1}
+  .menu-close{position:fixed;top:15px;right:30px;margin-top:0}
+  .close{position:fixed;top:15px;right:30px;font-size:25px;line-height:1}
   .arrow.left,.arrow.right{display:none}
   .grid img:hover{transform:none}
 }
