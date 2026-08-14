@@ -56,63 +56,25 @@
   shuffle(images);
 
   let currentIndex = -1;
-  let isTransitioning = false;
 
-  const openModal = (idx) => {
+  const setModalItem = (idx) => {
     currentIndex = idx;
     const item = images[currentIndex];
+    modalImg.src = item.src;
+    if(modalExif) modalExif.textContent = item.exif || '';
+  };
+
+  const openModal = (idx) => {
+    setModalItem(idx);
     modal.hidden = false;
     document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
-    modalImg.style.transition = 'opacity .25s ease, transform .25s ease';
-    modalImg.style.opacity = '0';
-    modalImg.style.transform = 'scale(.9)';
-    modalImg.src = item.src;
-    if(modalExif) modalExif.textContent = item.exif || '';
-    requestAnimationFrame(()=>{
-      modalImg.style.opacity = '1';
-      modalImg.style.transform = 'scale(1)';
-    });
   };
 
   const closeModal = () => {
-    modalImg.style.transition = 'opacity .2s ease, transform .2s ease';
-    modalImg.style.opacity = '0';
-    modalImg.style.transform = 'scale(.9)';
-    setTimeout(()=>{
-      modal.hidden = true;
-      document.body.classList.remove('modal-open');
-      document.body.style.overflow = '';
-      modalImg.style.transition = '';
-    },200);
-  };
-
-  const slideTo = (idx, dir) => {
-    if(isTransitioning || idx < 0 || idx >= images.length) return;
-    isTransitioning = true;
-    const item = images[idx];
-
-    // 1. put the image off-screen instantly, no transition
-    modalImg.style.transition = 'none';
-    modalImg.style.transform = `translateX(${dir*100}%) scale(.95)`;
-    modalImg.style.opacity = '0';
-    modalImg.offsetWidth; // force reflow
-
-    const imgPreload = new Image();
-    imgPreload.onload = () => {
-      currentIndex = idx;
-      modalImg.src = item.src;
-      if(modalExif) modalExif.textContent = item.exif || '';
-
-      // 2. animate in from off-screen to center
-      requestAnimationFrame(()=>{
-        modalImg.style.transition = 'transform .35s cubic-bezier(.4,0,.2,1), opacity .25s ease';
-        modalImg.style.transform = 'translateX(0) scale(1)';
-        modalImg.style.opacity = '1';
-        setTimeout(()=> isTransitioning = false, 350);
-      });
-    };
-    imgPreload.src = item.src;
+    modal.hidden = true;
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
   };
 
   // Build grid
@@ -127,8 +89,8 @@
 
   closeBtn?.addEventListener('click', closeModal);
   modal?.querySelector('.modal-backdrop')?.addEventListener('click', closeModal);
-  arrowLeft?.addEventListener('click', ()=> slideTo((currentIndex-1+images.length)%images.length, -1));
-  arrowRight?.addEventListener('click', ()=> slideTo((currentIndex+1)%images.length, 1));
+  arrowLeft?.addEventListener('click', ()=> setModalItem((currentIndex-1+images.length)%images.length));
+  arrowRight?.addEventListener('click', ()=> setModalItem((currentIndex+1)%images.length));
 
   // Touch swipe
   let touchStartX = 0;
@@ -136,7 +98,7 @@
   modalImg.addEventListener('touchend', e=>{
     const delta = e.changedTouches[0].clientX - touchStartX;
     if(Math.abs(delta) > 50){
-      slideTo((currentIndex + (delta<0?1:-1) + images.length)%images.length, delta<0?1:-1);
+      setModalItem((currentIndex + (delta<0?1:-1) + images.length)%images.length);
     }
   }, {passive:true});
 
