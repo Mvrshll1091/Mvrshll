@@ -141,16 +141,28 @@ h2 {
     column-count: 2;
     padding: 0 var(--side) 80px
   }
-  .grid img:hover{ transform:none; }
-  .grid img{ cursor:pointer; }
+
+  .grid img:hover {
+    transform: none;
+  }
+
+  .grid img {
+    cursor: pointer;
+  }
 }
 
 @media(max-width:600px) {
   .grid {
     column-count: 1
   }
-  .grid img:hover{ transform:none; }
-  .grid img{ cursor:pointer; }
+
+  .grid img:hover {
+    transform: none;
+  }
+
+  .grid img {
+    cursor: pointer;
+  }
 }
 
 /* About */
@@ -358,12 +370,13 @@ body.modal-open .nav {
     right: 30px;
     margin-top: 0;
   }
-  .close{
-     position: fixed;
-  top: 15px;
-  right: 30px;
-  font-size: 30px;
-  line-height: 1
+
+  .close {
+    position: fixed;
+    top: 15px;
+    right: 30px;
+    font-size: 30px;
+    line-height: 1
   }
 
   /* Mobile Slideshow */
