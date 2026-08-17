@@ -1,18 +1,9 @@
 (() => {
-  const grid = document.getElementById('grid');
-  if(!grid) return;
-
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modal-img');
-  const modalExif = document.getElementById('modal-exif');
-  const closeBtn = modal.querySelector('.close');
-  const arrowLeft = modal.querySelector('.arrow.left');
-  const arrowRight = modal.querySelector('.arrow.right');
-
-  // Hamburger
+  /* ---------- Hamburger / Menu – runs on every page ---------- */
   const hamburger = document.getElementById('hamburger');
   const menuOverlay = document.getElementById('menuOverlay');
   const menuClose = document.querySelector('.menu-close');
+
   const toggleMenu = (open) => {
     if(!menuOverlay) return;
     const isOpen = typeof open === 'boolean' ? open : !menuOverlay.hidden;
@@ -23,6 +14,17 @@
   menuClose?.addEventListener('click', () => toggleMenu(false));
   menuOverlay?.querySelector('.menu-backdrop')?.addEventListener('click', () => toggleMenu(false));
   document.querySelectorAll('.menu-nav a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+  /* ---------- Gallery / Modal – only on index.html ---------- */
+  const grid = document.getElementById('grid');
+  if(!grid) return;
+
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalExif = document.getElementById('modal-exif');
+  const closeBtn = modal?.querySelector('.close');
+  const arrowLeft = modal?.querySelector('.arrow.left');
+  const arrowRight = modal?.querySelector('.arrow.right');
 
   const images = [
     { src:'GFX/PORTFOLIO/1.jpg',  exif:'ISO 400 | 35mm | f/8 | 1/200s' },
@@ -77,7 +79,6 @@
     document.body.style.overflow = '';
   };
 
-  // Build grid
   images.forEach((item,i)=>{
     const img = document.createElement('img');
     img.src = item.src;
@@ -92,7 +93,6 @@
   arrowLeft?.addEventListener('click', ()=> setModalItem((currentIndex-1+images.length)%images.length));
   arrowRight?.addEventListener('click', ()=> setModalItem((currentIndex+1)%images.length));
 
-  // Touch swipe
   let touchStartX = 0;
   modalImg.addEventListener('touchstart', e=>{ touchStartX = e.touches[0].clientX; }, {passive:true});
   modalImg.addEventListener('touchend', e=>{
