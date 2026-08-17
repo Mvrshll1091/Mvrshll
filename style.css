@@ -43,7 +43,7 @@ h2{font:500 24px 'Roboto',sans-serif}
 @media(max-width:900px){
   .about{grid-template-columns:1fr;gap:30px;padding:0 30px 30px}
   .about img{max-width:100%}
-  .about h1{margin:0 0 10px 0}
+  .about h1{margin:0 0 5px 0}
 }
 
 /* Modal */
