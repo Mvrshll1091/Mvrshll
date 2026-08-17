@@ -65,7 +65,7 @@ body.modal-open .nav{display:none}
 @media(max-width:900px){
   .nav{padding:30px 30px}
   .nav-links{display:none}
-  
+  .hamburger{display:block}
   .logo-img{height:55px}
   .grid{padding:0 30px 10px}
   .menu-nav a{font-size:22pt;text-transform:uppercase;letter-spacing:.5px;margin:25px 0;font-weight:700}
