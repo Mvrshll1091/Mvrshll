@@ -51,7 +51,9 @@
     { src:'GFX/PORTFOLIO/22.jpg', exif:'ISO 100 | 60mm | f/1.4 | 1/6400s' },
     { src:'GFX/PORTFOLIO/23.jpg', exif:'ISO 100 | 32mm | f/6.3 | 1/15s' },
     { src:'GFX/PORTFOLIO/24.jpg', exif:'ISO 100 | 32mm | f/1.4 | 1/50s' },
-    { src:'GFX/PORTFOLIO/25.jpg', exif:'ISO 100 | 32mm | f/5 | 1/125s' }
+    { src:'GFX/PORTFOLIO/25.jpg', exif:'ISO 100 | 32mm | f/5 | 1/125s' },
+    { src:'GFX/PORTFOLIO/26.jpg', exif:'ISO 100 | 32mm | f/4 | 1/320s' },
+    { src:'GFX/PORTFOLIO/27.jpg', exif:'ISO 2500 | 32mm | f/1.4 | 1/40s' }
   ];
 
   const shuffle = arr => { for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } };
